@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal for suruchi </title>
+    <title>Proposal for Suruchi</title>
     <style>
         body {
             margin: 0;
@@ -55,7 +55,7 @@
         
         .heart {
             position: relative;
-            width: 00px;
+            width: 0px;
             height: 0px;
             margin: 0 auto;
             background: #ff6b6b;
@@ -67,7 +67,7 @@
         .heart:after {
             content: "";
             position: absolute;
-            width: 00px;
+            width: 0px;
             height: 0px;
             background: #ff6b6b;
             border-radius: 50%;
@@ -107,7 +107,7 @@
             padding: 10px 20px;
             font-size: 1.2em;
             color: #ffffff;
-            background-color: #fc0808;
+            background-color: #ee1414;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -154,8 +154,8 @@
 </head>
 
 <body>
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="asset/music/BUkhar.mp3"type="audio/mpeg">
+    <audio id="backgroundMusic" loop muted>
+        <source src="asset/music/BUkhar.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 
@@ -163,12 +163,14 @@
         <source src="asset/video/YouCut_20250103_202029049.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
     <canvas id="heartCanvas"></canvas>
+
     <div class="container">
         <div class="heart"></div>
         <h1>Suruchi, Will You Be Mine Forever?</h1>
         <p>You make my world brighter, and my heart beats for you. 💖</p>
-        <button class="button" onclick="showImage()">Yes, I Will!</button>
+        <button class="button" onclick="startAudio()">Yes, I Will!</button>
     </div>
 
     <div id="imageModal" class="modal">
@@ -264,7 +266,10 @@
             canvas.height = window.innerHeight;
         });
 
-        function showImage() {
+        function startAudio() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.muted = false;
+            audio.play(); // Start the music upon user click
             const modal = document.getElementById('imageModal');
             modal.classList.add('open');
         }
